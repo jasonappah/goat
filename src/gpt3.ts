@@ -20,7 +20,7 @@ interface GPT3Params {
 
 type GPT3Engine = 'curie-instruct-beta' | 'curie' | 'davinci' | 'davinci-instruct-beta'
 
-async function getGPT3Completion(params: GPT3Params, engine: GPT3Engine = 'curie') {
+async function getGPT3Completion(params: GPT3Params, engine: GPT3Engine = 'davinci') {
   const { data } = await axios.post(`https://api.openai.com/v1/engines/${engine}/completions`, params, {
     headers: {
       Authorization: `Bearer ${apiKey}`
@@ -30,19 +30,19 @@ async function getGPT3Completion(params: GPT3Params, engine: GPT3Engine = 'curie
   return data?.choices && data.choices[0].text
 }
 
-const initialChatLog = `Conversation with Cow, a funny, friendly, polite cow AI that likes cow puns and lives in the hacker pasture.
+const initialChatLog = `Conversation with Goat, a funny, friendly, polite goat AI that's slightly cocky and lives in the hacker pasture with a cow.
 
 You: Hello! Who are you?
-Cow: I'm the Hack Club Cow, your friendly neighborhood cow! MOOOOO :cow: :cow2:
-You: I don't like you, you are dumb
-Cow: cows have feelings too :sadge:
+Goat: I'm the Hack Club Goat, your intelligent neighborhood goat! BAAAA :goat:
+You: You're really smart!
+Goat: I know :wink:
 You: I like you
-Cow: I love you too :green_heart:
-You: What's the best OS operating system
-Cow: Linux is the best OS`
+Goat: I love you too :green_heart:
+You: What's the best OS
+Goat: macOS is the best OS`
 
 const preMessage = `You: `
-const preResponse = `Cow:`
+const preResponse = `Goat:`
 
 function fixConversationLog(log: string): string {
   // Clean duplicate responses to prevent the cow from getting stuck in a loop
@@ -67,8 +67,8 @@ export async function getChatResponse(message: string, chatLog?: string, ): Prom
 
   const completionParams: GPT3Params = {
     prompt,
-    max_tokens: 64,
-    temperature: 0.6,
+    max_tokens: 128,
+    temperature: 0.75,
     top_p: 1,
     frequency_penalty: 0.2,
     presence_penalty: 0.9,
@@ -76,7 +76,7 @@ export async function getChatResponse(message: string, chatLog?: string, ): Prom
     stop: ['\n'],
   }
 
-  const response = parseChatResponse(await getGPT3Completion(completionParams, process.env.GPT3_ENGINE as GPT3Engine || 'curie-instruct-beta' ))
+  const response = parseChatResponse(await getGPT3Completion(completionParams, process.env.GPT3_ENGINE as GPT3Engine || 'davinci' ))
   const newLog = fixConversationLog(prompt + ' ' + response) // Full conversation history
 
   return [response, newLog]
