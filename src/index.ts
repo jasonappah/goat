@@ -17,7 +17,9 @@ const maxChatWords = process.env.MAX_CHAT_LENGTH || 0
 
 const bot = new App({
   token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET
+  // signingSecret: process.env.SLACK_SIGNING_SECRET
+  appToken: process.env.SLACK_APP_TOKEN,
+  socketMode: true,
 })
 
 let currentChannel // We don't want to check the DB every time we get a new threaded message
@@ -190,7 +192,7 @@ async function cowAllowed(channelId): Promise<boolean> {
   if (channel && channel.cowAllowed) return true
 }
 
-bot.message(/(^| )moo+$/, async ({ say, message }) => {
+bot.message(/(^| )baa+$/, async ({ say, message }) => {
   if (!await cowAllowed(message.channel) || (message as GenericMessageEvent).thread_ts) return
   say(getGenericResponse('mooResponse'))
 })
