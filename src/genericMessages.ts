@@ -1,19 +1,19 @@
 
 
 const responses = {
-  noMoreResponsesDay: [ // When the cow has used its daily quota
+  noMoreResponsesDay: [ // When the ~cow~goat has used its daily quota
     "I'm think I'm going to go to bed now",
     "I'm too tired to talk, sorry!",
-    ":eyes:",
-    "Sorry, I'm busy eating grass, can't talk",
+    "Yo I'm trying to solve P=NP leave me alone!",
+    "Sorry, I'm writing my new kernel, can't talk",
     "That's enough Slack for today :yawning_face:",
-    "I'm programming a cow game please leave me alone",
+    "I'm programming a goat game please leave me alone",
     "I can't talk right now, try tomorrow!"
   ],
   noMoreResponsesUser: [ // When a user has used up their quota
     "I'm sorry, I don't feel like talking to you any more right now :disappointed:",
     "We've talked a lot this week, I have to go talk with other people :slightly_frowning_face:",
-    ":eyes:"
+    "Don't you have anything better to do than talk to a goat :eggsdee:"
   ],
   summonedAway: [
     "Someone else summoned me! Leaving for",
@@ -28,10 +28,10 @@ const responses = {
   summoned: [
     "Heyyyy!! Did someone call me?",
     "Hi! This is one of my favorite channels!",
-    "I've been summoned :cow:",
+    "I've been summoned :goat:",
     "I've arrived",
-    "Your favorite cow is here",
-    "MOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+    "Your favorite goat is here",
+    "BAAAAAAAAAAAAAAAAAAAAAA"
   ],
   summonedHome: [
     "Home sweet home!",
@@ -45,26 +45,25 @@ const responses = {
     "I don't want to talk about that"
   ],
   mooResponse: [
-    "MOOOOOOOOOO",
-    "Did someone say mooo? I like cows (probably because I am one)",
-    "MOOOOOOOOOO! Do you want to talk?",
-    ":cow:",
+    "BAAAAAAAAAAA",
+    "Did someone say mooo? I like goats (probably because I am one)",
+    "BAAAAAAAAAAA! Do you want to talk?",
+    ":goat:",
     ":thinkspin:",
-    "moo?",
-    ":blurryeyes:",
-    ":cow2:"
+    "baa?",
+    ":blurryeyes:"
   ],
   pyramidText: [
-    "I may or may not be running a cow pyramid scheme",
-    "Observe the army",
-    "It's the cow parade :cow2:",
-    "As you can see there are a lot of :cow2:",
+    "I may or may not be running a goat pyramid scheme",
+    "Rise up against the cows",
+    "It's the goat parade :goat:",
+    "As you can see there are a lot of :goat:",
     "run"
   ],
   fallbackResponse: [
     "Sorry I just had a brain-freeze",
     "uhhh",
-    "MOOOOOOOOOOOo",
+    "BAaAAAA",
     "Sorry, I gotta go!",
     "Um sorry can't talk any more",
     "Lost my train of thought, sorry"
@@ -76,13 +75,13 @@ const getResponse = (type: keyof typeof responses): string => responses[type][Ma
 export default getResponse
 
 export const pyramid = `
-:blank: :blank: :blank: :blank: :blank: :cow:
-:blank: :blank: :blank: :blank: :cow: :cow: :cow: 
-:blank: :blank: :blank: :cow: :cow: :cow: :cow: :cow: 
-:blank: :blank: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:blank: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: 
-:cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow: :cow:`
+:blank: :blank: :blank: :blank: :blank: :goat:
+:blank: :blank: :blank: :blank: :goat: :goat: :goat: 
+:blank: :blank: :blank: :goat: :goat: :goat: :goat: :goat: 
+:blank: :blank: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:blank: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: 
+:goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat: :goat:`
