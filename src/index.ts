@@ -23,9 +23,9 @@ const bot = new App({
 let currentChannel // We don't want to check the DB every time we get a new threaded message
 let selfId // ID of bot
 
-bot.command('/allow-cow', allowCowCommand)
-bot.command('/leave-cow', blockCowCommand)
-bot.command('/cow', cowInfoCommand)
+bot.command('/allow-goat', allowCowCommand)
+bot.command('/leave-goat', blockCowCommand)
+bot.command('/goat', cowInfoCommand)
 
 // Summon cow to any channel
 async function summonCow(channelId: string, client): Promise<boolean> {
@@ -44,7 +44,7 @@ async function summonCow(channelId: string, client): Promise<boolean> {
 
   if (cow.currentChannel === process.env.COW_HOME_CHANNEL || lastThreadWasRecent) client.chat.postMessage({
     channel: cow.currentChannel,
-    text: cow.currentChannel === process.env.COW_HOME_CHANNEL ? getGenericResponse('summonedAwayFromHome') + ` <#${channelId}>` : getGenericResponse('summonedAway') + ` <#${channelId}>. MOOOO! :wave:`
+    text: cow.currentChannel === process.env.COW_HOME_CHANNEL ? getGenericResponse('summonedAwayFromHome') + ` <#${channelId}>` : getGenericResponse('summonedAway') + ` <#${channelId}>. ~MOOOO~! :wave:`
   })
 
   cow.currentChannel = channelId
@@ -179,7 +179,7 @@ bot.event('reaction_added', async ({ event, client }) => {
   }) as any).message.reactions.filter(r => r.name === 'x')[0].count
 
   // Delete the message if we have two votes (or I voted; yes, my vote counts as one million votes)
-  if (totalVotes >= 2 || event.user === 'U0128N09Q8Y') await client.chat.delete({
+  if (totalVotes >= 2 || event.user === 'U0128N09Q8Y' || event.user === 'UN6C43287') await client.chat.delete({
     channel: event.item.channel,
     ts: event.item.ts
   })
