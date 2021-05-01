@@ -46,7 +46,7 @@ async function summonCow(channelId: string, client): Promise<boolean> {
 
   if (cow.currentChannel === process.env.COW_HOME_CHANNEL || lastThreadWasRecent) client.chat.postMessage({
     channel: cow.currentChannel,
-    text: cow.currentChannel === process.env.COW_HOME_CHANNEL ? getGenericResponse('summonedAwayFromHome') + ` <#${channelId}>` : getGenericResponse('summonedAway') + ` <#${channelId}>. ~MOOOO~! :wave:`
+    text: cow.currentChannel === process.env.COW_HOME_CHANNEL ? getGenericResponse('summonedAwayFromHome') + ` <#${channelId}>` : getGenericResponse('summonedAway') + ` <#${channelId}>. ~BAAA~! :wave:`
   })
 
   cow.currentChannel = channelId
