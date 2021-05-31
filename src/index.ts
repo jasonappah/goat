@@ -197,7 +197,7 @@ bot.message(/(^| )baa+$/, async ({ say, message }) => {
   say(getGenericResponse('mooResponse'))
 })
 
-bot.message(/(^| )cow pyramid$/, async ({ say, message }) => {
+bot.message(/(^| )goat pyramid$/, async ({ say, message }) => {
   if (!await cowAllowed(message.channel) || (message as GenericMessageEvent).thread_ts) return
   await say(cowPyramid)
   say(getGenericResponse('pyramidText'))
