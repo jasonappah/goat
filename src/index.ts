@@ -127,7 +127,7 @@ bot.event('app_mention', async ({ event, client }) => {
   if (event.thread_ts || !await summonCow(event.channel, client)) return // Cow not summoned or this is a thread
 
   // Temporary fix to prevent long chains of messages with the goat bot
-  if (event.text.indexOf('<@U01U06UT4CD>') >= 0) {
+  if (event.text.indexOf('<@U01P8NH2WK0>') >= 0) {
     await client.chat.postMessage({
       channel: event.channel,
       thread_ts: event.ts,
