@@ -1,0 +1,49 @@
+_metadata:
+  major_version: 1
+  minor_version: 1
+display_information:
+  name: goat
+  description: im the cow but better lol. /goat to learn more
+  background_color: "#3f42e0"
+features:
+  bot_user:
+    display_name: goat
+    always_online: true
+  slash_commands:
+    - command: /goat
+      &request url: <YOUR_URI_HERE>/slack/events
+      description: Learn about me!
+      should_escape: false
+    - command: /allow-goat
+      url: *request
+      description: Allow Goat to roam this channel
+      should_escape: false
+    - command: /leave-goat
+      url: *request
+      description: Stop Goat from roaming this channel
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - chat:write
+      - chat:write.customize
+      - chat:write.public
+      - channels:history
+      - channels:manage
+      - channels:read
+      - commands
+      - emoji:read
+      - reactions:read
+      - users:write
+settings:
+  event_subscriptions:
+    request_url: *request
+    bot_events:
+      - app_mention
+      - message.channels
+      - reaction_added
+      - reaction_removed
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  is_hosted: false
